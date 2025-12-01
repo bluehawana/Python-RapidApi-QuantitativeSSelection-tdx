@@ -1,0 +1,29 @@
+{
+  "mcpServers": {
+    "mcp-baostock": {
+      "command": "python",
+      "args": [
+        "-m",
+        "uv",
+        "run",
+        "--directory",
+        "mcp-baostock",
+        "mcp-baostock-server"
+      ],
+      "env": {},
+      "disabled": false,
+      "autoApprove": [
+        "get_current_time",
+        "get_stock_basic",
+        "get_stock_kdata",
+        "get_industry_info",
+        "get_dividend_info",
+        "get_profit_info",
+        "get_operation_info",
+        "get_growth_info",
+        "get_index_data",
+        "get_valuation_info"
+      ]
+    }
+  }
+}
