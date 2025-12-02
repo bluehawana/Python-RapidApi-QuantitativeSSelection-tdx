@@ -11,18 +11,29 @@ Usage:
 3. Or schedule to run at market open
 """
 
+import os
 import pandas as pd
 import numpy as np
 from datetime import datetime, time
 import requests
 import time as time_module
 import warnings
+from pathlib import Path
 warnings.filterwarnings('ignore')
 
-# ============ CONFIGURE YOUR TELEGRAM HERE ============
-TELEGRAM_BOT_TOKEN = "8118773821:AAEzT87IEeZH3X_dcTZll4eE6fPHShuKYlA"
-TELEGRAM_CHAT_ID = "1141127507"
-# ======================================================
+# Load .env file if exists
+env_path = Path(__file__).parent / '.env'
+if env_path.exists():
+    with open(env_path) as f:
+        for line in f:
+            if '=' in line and not line.startswith('#'):
+                key, value = line.strip().split('=', 1)
+                os.environ[key] = value
+
+# ============ TELEGRAM CONFIG (from .env or environment) ============
+TELEGRAM_BOT_TOKEN = os.getenv("TELEGRAM_BOT_TOKEN", "YOUR_BOT_TOKEN_HERE")
+TELEGRAM_CHAT_ID = os.getenv("TELEGRAM_CHAT_ID", "YOUR_CHAT_ID_HERE")
+# ====================================================================
 
 # Scan interval in seconds
 SCAN_INTERVAL = 60  # Check every 1 minute

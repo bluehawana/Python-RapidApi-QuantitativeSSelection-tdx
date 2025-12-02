@@ -4,8 +4,12 @@ Edit these settings before running the scanner.
 """
 
 # ============ TELEGRAM SETTINGS ============
-TELEGRAM_BOT_TOKEN = "8118773821:AAEzT87IEeZH3X_dcTZll4eE6fPHShuKYlA"
-TELEGRAM_CHAT_ID = "1141127507"
+# Set these as environment variables:
+# export TELEGRAM_BOT_TOKEN="your_token"
+# export TELEGRAM_CHAT_ID="your_chat_id"
+import os
+TELEGRAM_BOT_TOKEN = os.getenv("TELEGRAM_BOT_TOKEN", "YOUR_BOT_TOKEN_HERE")
+TELEGRAM_CHAT_ID = os.getenv("TELEGRAM_CHAT_ID", "YOUR_CHAT_ID_HERE")
 
 # ============ SCANNER SETTINGS ============
 # How often to scan (seconds)
